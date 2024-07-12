@@ -1,6 +1,9 @@
 # Используем официальный базовый образ PHP с Apache
 FROM php:7.4-apache
 
+# Установка ServerName в Apache
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Обновляем индекс пакетов и устанавливаем необходимые пакеты и расширения
 RUN apt-get update && \
     apt-get install -y curl libcurl4-openssl-dev && \
